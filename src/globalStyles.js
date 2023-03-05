@@ -17,12 +17,12 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
   }
   
   * {
     font-family: Recursive;
     font-weight: bold;
+    box-sizing: border-box;
   }
 
 `;

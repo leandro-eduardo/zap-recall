@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import GlobalStyle from './globalStyles';
 import logo from './assets/logo.png';
 import { useState } from 'react';
+import Flashcard from './components/Flashcard';
+import { flashcards } from './deck';
 
 function App() {
   const [cardsDone, setCardsDone] = useState(0);
@@ -13,7 +15,17 @@ function App() {
         <img src={logo} alt='Logo' />
         Zap Recall
       </Header>
-      {/* <Flashcard /> */}
+      <FlashcardsContainer>
+        {flashcards.map((flashcard, index) => (
+          <Flashcard
+            key={index}
+            index={index}
+            flashcard={flashcard}
+            cardsDone={cardsDone}
+            setCardsDone={setCardsDone}
+          />
+        ))}
+      </FlashcardsContainer>
       <Footer>{cardsDone}/8 CONCLUÍDOS</Footer>
     </Container>
   );
@@ -23,10 +35,19 @@ export default App;
 
 const Container = styled.div`
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   background-color: #fb6b6b;
-  height: 100vh;
+  min-height: 100vh;
   padding: 40px;
+  height: 100%;
+`;
+
+const FlashcardsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin: 60px 0;
 `;
 
 const Header = styled.div`

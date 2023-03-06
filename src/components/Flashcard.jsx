@@ -99,12 +99,15 @@ const OpenedContainer = styled.div`
   display: flex;
   flex-direction: ${(props) => (props.stage === 'flipped' ? 'column' : 'row')};
   justify-content: space-between;
-  padding: 20px;
-  height: 130px;
+  padding: 15px;
+  min-height: 130px;
   width: 300px;
   background-color: #ffffd4;
   border-radius: 5px;
   box-shadow: 0px 4px 5px 0px #00000026;
+  font-size: 18px;
+  font-weight: 400;
+  gap: 10px;
 
   img {
     align-self: flex-end;
@@ -124,7 +127,7 @@ const Button = styled.div`
   text-align: center;
   width: 85px;
   height: 40px;
-  padding: 5px;
+  padding: 8px;
   background-color: ${(props) => props.color};
   color: #ffffff;
   font-size: 12px;

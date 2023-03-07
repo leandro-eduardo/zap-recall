@@ -77,7 +77,7 @@ const ClosedContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 10px 20px 20px;
+  padding: 20px ${({ stage }) => (stage === 'closed' ? '15px' : '20px')} 20px 20px;
   height: 65px;
   width: 300px;
   background-color: #ffffff;

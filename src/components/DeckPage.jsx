@@ -1,11 +1,11 @@
+import { useState } from 'react';
+import { flashcards } from '../deck';
 import styled from 'styled-components';
 import logo from '../assets/logo.png';
 import partyEmoji from '../assets/party.png';
 import sadEmoji from '../assets/sad.png';
 import wrongIcon from '../assets/wrong-icon.png';
-import { useState } from 'react';
 import Flashcard from '../components/Flashcard';
-import { flashcards } from '../deck';
 
 export default function DeckPage() {
   const [sequenceOfAnswers, setSequenceOfAnswers] = useState([]);

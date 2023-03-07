@@ -12,6 +12,7 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
+    "react-icons": "^4.8.0",
     "styled-components": "^5.3.8"
   },
   "scripts": {

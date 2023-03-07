@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { BsPlay, BsArrowRightShort } from 'react-icons/bs';
 import styled from 'styled-components';
-import playButton from '../assets/play-button.png';
-import flipButton from '../assets/flip-arrow.png';
 import correctIcon from '../assets/correct-icon.png';
 import almostIcon from '../assets/almost-icon.png';
 import wrongIcon from '../assets/wrong-icon.png';
@@ -29,7 +28,9 @@ export default function Flashcard(props) {
     return (
       <ClosedContainer stage={stage}>
         Pergunta {index + 1}
-        <img src={playButton} onClick={openFlashcard} alt='Play button' />
+        <PlayIcon>
+          <BsPlay onClick={openFlashcard} />
+        </PlayIcon>
       </ClosedContainer>
     );
   }
@@ -37,7 +38,9 @@ export default function Flashcard(props) {
     return (
       <OpenedContainer>
         {flashcard.question}
-        <img src={flipButton} onClick={flipFlashcard} alt='Flip button' />
+        <FlipIcon>
+          <BsArrowRightShort onClick={flipFlashcard} />
+        </FlipIcon>
       </OpenedContainer>
     );
   }
@@ -74,7 +77,7 @@ const ClosedContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px;
+  padding: 20px 10px 20px 20px;
   height: 65px;
   width: 300px;
   background-color: #ffffff;
@@ -89,13 +92,16 @@ const ClosedContainer = styled.div`
       ? '#FF922E'
       : '#FF3030'};
   text-decoration: ${({ stage }) => (stage === 'done' ? 'line-through' : 'none')};
+`;
 
-  img {
-    cursor: pointer;
-  }
+const PlayIcon = styled.div`
+  display: flex;
+  font-size: 35px;
+  cursor: pointer;
 `;
 
 const OpenedContainer = styled.div`
+  position: relative;
   display: flex;
   flex-direction: ${({ stage }) => (stage === 'flipped' ? 'column' : 'row')};
   justify-content: space-between;
@@ -108,11 +114,15 @@ const OpenedContainer = styled.div`
   font-size: 18px;
   font-weight: 400;
   gap: 10px;
+`;
 
-  img {
-    align-self: flex-end;
-    cursor: pointer;
-  }
+const FlipIcon = styled.div`
+  position: absolute;
+  display: flex;
+  bottom: 4px;
+  right: 5px;
+  font-size: 30px;
+  cursor: pointer;
 `;
 
 const ButtonsContainer = styled.div`

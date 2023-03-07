@@ -5,7 +5,7 @@ import Flashcard from '../components/Flashcard';
 import { flashcards } from '../deck';
 
 export default function DeckPage() {
-  const [cardsDone, setCardsDone] = useState(0);
+  const [sequenceOfAnswers, setSequenceOfAnswers] = useState([]);
 
   return (
     <Container>
@@ -19,12 +19,19 @@ export default function DeckPage() {
             key={index}
             index={index}
             flashcard={flashcard}
-            cardsDone={cardsDone}
-            setCardsDone={setCardsDone}
+            sequenceOfAnswers={sequenceOfAnswers}
+            setSequenceOfAnswers={setSequenceOfAnswers}
           />
         ))}
       </FlashcardsContainer>
-      <Footer>{cardsDone}/8 CONCLUÍDOS</Footer>
+      <Footer>
+        {sequenceOfAnswers.length}/8 CONCLUÍDOS
+        <div>
+          {sequenceOfAnswers.map((answer) => (
+            <img src={answer} />
+          ))}
+        </div>
+      </Footer>
     </Container>
   );
 }
@@ -60,6 +67,8 @@ const Header = styled.div`
 
 const Footer = styled.div`
   display: flex;
+  flex-direction: column;
+  gap: 5px;
   align-items: center;
   justify-content: center;
   background-color: #ffffff;
@@ -70,4 +79,9 @@ const Footer = styled.div`
   left: 0;
   font-size: 18px;
   font-weight: 400;
+
+  div {
+    display: flex;
+    gap: 5px;
+  }
 `;

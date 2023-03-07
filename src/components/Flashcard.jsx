@@ -7,7 +7,7 @@ import almostIcon from '../assets/almost-icon.png';
 import wrongIcon from '../assets/wrong-icon.png';
 
 export default function Flashcard(props) {
-  const { index, flashcard, cardsDone, setCardsDone } = props;
+  const { index, flashcard, sequenceOfAnswers, setSequenceOfAnswers } = props;
   const [stage, setStage] = useState('closed');
   const [icon, setIcon] = useState();
 
@@ -22,7 +22,7 @@ export default function Flashcard(props) {
   function answerFlashcard(icon) {
     setStage('done');
     setIcon(icon);
-    setCardsDone(cardsDone + 1);
+    setSequenceOfAnswers([...sequenceOfAnswers, icon]);
   }
 
   if (stage === 'closed') {

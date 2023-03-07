@@ -80,15 +80,15 @@ const ClosedContainer = styled.div`
   background-color: #ffffff;
   border-radius: 5px;
   box-shadow: 0px 4px 5px 0px #00000026;
-  color: ${(props) =>
-    props.stage === 'closed'
+  color: ${({ stage, icon }) =>
+    stage === 'closed'
       ? '#000000'
-      : props.icon === correctIcon
+      : icon === correctIcon
       ? '#2FBE34'
-      : props.icon === almostIcon
+      : icon === almostIcon
       ? '#FF922E'
       : '#FF3030'};
-  text-decoration: ${(props) => (props.stage === 'done' ? 'line-through' : 'none')};
+  text-decoration: ${({ stage }) => (stage === 'done' ? 'line-through' : 'none')};
 
   img {
     cursor: pointer;
@@ -97,7 +97,7 @@ const ClosedContainer = styled.div`
 
 const OpenedContainer = styled.div`
   display: flex;
-  flex-direction: ${(props) => (props.stage === 'flipped' ? 'column' : 'row')};
+  flex-direction: ${({ stage }) => (stage === 'flipped' ? 'column' : 'row')};
   justify-content: space-between;
   padding: 15px;
   min-height: 130px;
@@ -128,7 +128,7 @@ const Button = styled.div`
   width: 85px;
   height: 40px;
   padding: 8px;
-  background-color: ${(props) => props.color};
+  background-color: ${({ color }) => color};
   color: #ffffff;
   font-size: 12px;
   font-weight: 400;

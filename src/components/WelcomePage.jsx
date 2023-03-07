@@ -20,6 +20,7 @@ const Container = styled.div`
   align-items: center;
   gap: 30px;
   margin-top: -60px;
+  padding: 35px 35px 70px;
 
   img {
     width: 135px;

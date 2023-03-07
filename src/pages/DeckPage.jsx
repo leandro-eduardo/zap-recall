@@ -65,6 +65,10 @@ const Container = styled.div`
   align-items: center;
   flex-direction: column;
   padding: 35px 35px ${({ gameIsOver }) => (gameIsOver ? '180px' : '80px')};
+  background-color: #fb6b6b;
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
 `;
 
 const FlashcardsContainer = styled.div`

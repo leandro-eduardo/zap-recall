@@ -16,10 +16,14 @@ export default function WelcomePage(props) {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   gap: 30px;
-  margin-top: -60px;
   padding: 35px 35px 70px;
+  background-color: #fb6b6b;
+  min-height: 100vh;
+  height: 100%;
+  width: 100%;
 
   img {
     width: 135px;

@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { flashcards } from '../deck';
 import styled from 'styled-components';
-import logo from '../assets/logo.png';
-import partyEmoji from '../assets/party.png';
-import sadEmoji from '../assets/sad.png';
-import wrongIcon from '../assets/wrong-icon.png';
+import logo from '../assets/logo.svg';
+import partyEmoji from '../assets/partying-face.svg';
+import sadEmoji from '../assets/sad-but-relieved-face.svg';
+import closeIcon from '../assets/close-icon.svg';
 import Flashcard from '../components/Flashcard';
 
 export default function DeckPage() {
@@ -30,7 +30,7 @@ export default function DeckPage() {
       <Footer>
         {sequenceOfAnswers.length === flashcards.length && (
           <>
-            {!sequenceOfAnswers.includes(wrongIcon) ? (
+            {!sequenceOfAnswers.includes(closeIcon) ? (
               <ResultTextContainer>
                 <span>
                   <img src={partyEmoji} /> Parabéns!
@@ -50,8 +50,8 @@ export default function DeckPage() {
         <SequenceOfAnswersContainer>
           {sequenceOfAnswers.length}/8 CONCLUÍDOS
           <div>
-            {sequenceOfAnswers.map((answer) => (
-              <img src={answer} alt='Answer icon' />
+            {sequenceOfAnswers.map((icon, index) => (
+              <img key={index} src={icon} alt='Icon' />
             ))}
           </div>
         </SequenceOfAnswersContainer>
@@ -89,8 +89,7 @@ const Header = styled.div`
   height: 60px;
 
   img {
-    width: 60px;
-    height: 60px;
+    height: 100%;
   }
 `;
 
@@ -109,6 +108,10 @@ const Footer = styled.div`
   left: 0;
   font-size: 18px;
   font-weight: 400;
+
+  img {
+    width: 23px;
+  }
 
   span:first-child {
     display: flex;

@@ -1,4 +1,4 @@
-import logo from '../assets/logo.png';
+import logo from '../assets/logo.svg';
 import styled from 'styled-components';
 
 export default function WelcomePage(props) {

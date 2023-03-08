@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { BsPlay, BsArrowRightShort } from 'react-icons/bs';
 import styled from 'styled-components';
-import correctIcon from '../assets/correct-icon.png';
-import almostIcon from '../assets/almost-icon.png';
-import wrongIcon from '../assets/wrong-icon.png';
+import playIcon from '../assets/play-icon.svg';
+import flipIcon from '../assets/flip-icon.svg';
+import closeIcon from '../assets/close-icon.svg';
+import helpIcon from '../assets/help-icon.svg';
+import checkIcon from '../assets/check-icon.svg';
 
 export default function Flashcard(props) {
   const { index, flashcard, sequenceOfAnswers, setSequenceOfAnswers } = props;
@@ -29,7 +30,7 @@ export default function Flashcard(props) {
       <ClosedContainer stage={stage}>
         Pergunta {index + 1}
         <PlayIcon>
-          <BsPlay onClick={openFlashcard} />
+          <img src={playIcon} onClick={openFlashcard} />
         </PlayIcon>
       </ClosedContainer>
     );
@@ -39,7 +40,7 @@ export default function Flashcard(props) {
       <OpenedContainer>
         {flashcard.question}
         <FlipIcon>
-          <BsArrowRightShort onClick={flipFlashcard} />
+          <img src={flipIcon} onClick={flipFlashcard} />
         </FlipIcon>
       </OpenedContainer>
     );
@@ -49,13 +50,13 @@ export default function Flashcard(props) {
       <OpenedContainer stage={stage}>
         {flashcard.answer}
         <ButtonsContainer>
-          <Button color={'#ff3030'} onClick={() => answerFlashcard(wrongIcon)}>
+          <Button color={'#ff3030'} onClick={() => answerFlashcard(closeIcon)}>
             Não lembrei
           </Button>
-          <Button color={'#ff922e'} onClick={() => answerFlashcard(almostIcon)}>
+          <Button color={'#ff922e'} onClick={() => answerFlashcard(helpIcon)}>
             Quase não lembrei
           </Button>
-          <Button color={'#2fbe34'} onClick={() => answerFlashcard(correctIcon)}>
+          <Button color={'#2fbe34'} onClick={() => answerFlashcard(checkIcon)}>
             Zap!
           </Button>
         </ButtonsContainer>
@@ -67,7 +68,7 @@ export default function Flashcard(props) {
     return (
       <ClosedContainer stage={stage} icon={icon}>
         Pergunta {index + 1}
-        <img src={icon} alt='Flashcard answer icon' />
+        <img src={icon} />
       </ClosedContainer>
     );
   }
@@ -77,7 +78,7 @@ const ClosedContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px ${({ stage }) => (stage === 'closed' ? '15px' : '20px')} 20px 20px;
+  padding: 20px;
   height: 65px;
   width: 300px;
   background-color: #ffffff;
@@ -86,17 +87,17 @@ const ClosedContainer = styled.div`
   color: ${({ stage, icon }) =>
     stage === 'closed'
       ? '#000000'
-      : icon === correctIcon
-      ? '#2FBE34'
-      : icon === almostIcon
-      ? '#FF922E'
-      : '#FF3030'};
+      : icon === checkIcon
+      ? '#2fbe34'
+      : icon === helpIcon
+      ? '#ff922e'
+      : '#ff3030'};
   text-decoration: ${({ stage }) => (stage === 'done' ? 'line-through' : 'none')};
 `;
 
 const PlayIcon = styled.div`
   display: flex;
-  font-size: 35px;
+  font-size: 30px;
   cursor: pointer;
 `;
 
@@ -119,9 +120,9 @@ const OpenedContainer = styled.div`
 const FlipIcon = styled.div`
   position: absolute;
   display: flex;
-  bottom: 4px;
-  right: 5px;
-  font-size: 30px;
+  bottom: 10px;
+  right: 15px;
+  font-size: 25px;
   cursor: pointer;
 `;
 

@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import styled from 'styled-components';
+import { useState } from 'react';
 import playIcon from '../assets/play-icon.svg';
 import flipIcon from '../assets/flip-icon.svg';
 import closeIcon from '../assets/close-icon.svg';
@@ -75,12 +75,12 @@ export default function Flashcard(props) {
 }
 
 const ClosedContainer = styled.div`
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 20px;
   height: 65px;
-  width: 300px;
   background-color: #ffffff;
   border-radius: 5px;
   box-shadow: 0px 4px 5px 0px #00000026;
@@ -102,17 +102,17 @@ const PlayIcon = styled.div`
 `;
 
 const OpenedContainer = styled.div`
+  width: 100%;
   position: relative;
   display: flex;
   flex-direction: ${({ stage }) => (stage === 'flipped' ? 'column' : 'row')};
   justify-content: space-between;
   padding: 15px;
   min-height: 130px;
-  width: 300px;
   background-color: #ffffd4;
   border-radius: 5px;
   box-shadow: 0px 4px 5px 0px #00000026;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 400;
   gap: 10px;
 `;
@@ -128,6 +128,7 @@ const FlipIcon = styled.div`
 
 const ButtonsContainer = styled.div`
   display: flex;
+  justify-content: center;
   gap: 10px;
 `;
 
@@ -145,4 +146,10 @@ const Button = styled.div`
   font-weight: 400;
   border-radius: 5px;
   cursor: pointer;
+
+  @media screen and (max-width: 332px) {
+    font-size: 10px;
+    padding: 10px;
+    height: 45px;
+  }
 `;

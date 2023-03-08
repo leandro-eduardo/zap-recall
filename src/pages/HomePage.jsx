@@ -1,7 +1,7 @@
-import logo from '../assets/logo.svg';
 import styled from 'styled-components';
+import logo from '../assets/logo.svg';
 
-export default function WelcomePage(props) {
+export default function HomePage(props) {
   const { setPage } = props;
 
   return (

@@ -1,6 +1,6 @@
-import GlobalStyle from './globalStyles';
 import { useState } from 'react';
-import WelcomePage from './pages/WelcomePage';
+import GlobalStyle from './globalStyles';
+import HomePage from './pages/HomePage';
 import DeckPage from './pages/DeckPage';
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      {page === 'welcome' ? <WelcomePage setPage={setPage} /> : <DeckPage />}
+      {page === 'welcome' ? <HomePage setPage={setPage} /> : <DeckPage />}
     </>
   );
 }
